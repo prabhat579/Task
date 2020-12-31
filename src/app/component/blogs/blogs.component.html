@@ -1,0 +1,32 @@
+
+<div  *ngFor='let blog of blogs' style="  margin-top: 20px; display: flex; flex-direction: row;">
+<div   style="height: auto; padding: 5px; width: 70%; "  >
+    <div style="width: 500px; ">
+    <p style="text-align: center;"> {{blog.title}}</p>
+    <div >
+    <img [src]="blog.imgUrl" style="width: 200px;" (click)="navigateToBlogDetail(blog.id)" >
+</div>
+    <p> Author : {{blog.author}}</p>
+    
+    
+    <p> Date : {{blog.created_at|date}}</p>
+    <p style="padding-left: 5px;"> Read Time : {{blog.updated_at|date}}</p>
+
+    
+<hr>
+</div>
+     
+</div>
+<div style="width: 30%;">
+    <div style="width: 300px;">
+   <p style="text-align: center;">{{blog.adv_title}}</p>
+   <p>{{blog.adv_description}}</p>
+   <img [src]="blog.adv_image" style="width: 100px;">
+   <p>{{blog.adv_butttonname}}</p>
+</div>
+
+
+</div>
+
+</div>
+
