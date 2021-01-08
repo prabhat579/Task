@@ -11,21 +11,21 @@ import { BlogService } from 'src/app/blog.service';
 export class BlogsComponent implements OnInit {
 
 
-  blogs: Blog[] = [];
+  public blogs = [];
 
   constructor(private api:BlogService, private route: Router) { }
 
   ngOnInit() {
-    this.api.getBlog().subscribe((data)=>{
-      this.blogs = data['blogs'];
-     
-      console.warn(data);
-          })
+    this.api.getBlog()
+    .subscribe(data => this.blogs = data);
+          }
+
+  
   }
 
-  navigateToBlogDetail(id: string){
-    this.route.navigate(['BlogDetail',id]);
-  }
+  // navigateToBlogDetail(id: string){
+  //   this.route.navigate(['BlogDetail',id]);
+  // }
 
 
-}
+

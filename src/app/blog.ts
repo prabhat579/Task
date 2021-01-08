@@ -1,7 +1,7 @@
 export interface Blog {
-    id?:string,
+    userId?:number,
+    id?:number,
     title?:string,
-    author?:string,
-    imgUrl?:string
-    description?:string,
+    body?:string
+    
 }
