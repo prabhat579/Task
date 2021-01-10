@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Blog } from 'src/app/blog';
 import { BlogDetailsService } from 'src/app/blog-details.service';
@@ -13,31 +12,15 @@ import { BlogsComponent } from '../blogs/blogs.component';
 })
 export class BlogsDetailsComponent implements OnInit {
 
-  name:string = '';
-  age:number;
-  found:boolean;
-
-  constructor(private httpClient:HttpClient){  }
-  onNameKeyUp(event:any){
-    this.name = event.target.value;
-    this.found = false;
-  }
-
-  getProfile(){
-    console.log(this.name)
-    this.httpClient.get(`https://my-json-server.typicode.com/techsithgit/json-faker-directory/profiles/?name=${this.name}`)
-    .subscribe(
-      (data:any[]) => {
-        if(data.length) {
-          this.age = data[0].age;
-          this.found = true;
-        }
-      }
-    )
-  }
+  constructor( private api:BlogService) { }
+  // blogs: Blog = {};
 
   ngOnInit() {
-      
+    // this.api.getBlog().subscribe((data)=>{
+    //   this.blogs = data['blogs'];
+     
+    //   console.warn(data);
+    //       })
    
   }
 
